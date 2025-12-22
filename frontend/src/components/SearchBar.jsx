@@ -22,7 +22,7 @@ function SearchBar() {
 
         try {
             const { data } = await axios.get(
-                `http://localhost:8000/api/user/search?query=${searchInput}`,
+                `https://linkedin-backend-3b3o.onrender.com/api/user/search?query=${searchInput}`,
                 { withCredentials: true }
             );
             setSearchData(data);
