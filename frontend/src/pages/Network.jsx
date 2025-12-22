@@ -13,7 +13,7 @@ import ProfileSection from '../components/ProfileSection.jsx';
 import FriendSuggestions from '../components/FriendSuggestions.jsx';
 import dp from '../assets/dp.webp';
 
-// const socket = io('http://localhost:8000');
+// const socket = io('https://linkedin-backend-3b3o.onrender.com');
 
 function Network() {
     const { suggestions, setSuggestions } = useContext(userDataContext);
