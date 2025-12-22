@@ -18,7 +18,7 @@ function FriendSuggestions() {
         try {
             setLoading(true);
             const res = await axios.get(
-                'http://localhost:8000/api/user/suggestedusers',
+                'https://linkedin-backend-3b3o.onrender.com/api/user/suggestedusers',
                 { withCredentials: true }
             );
             setSuggestedUsers(res.data);
