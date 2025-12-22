@@ -16,7 +16,7 @@ dotenv.config();
 const app = express();
 app.use(
     cors({
-        origin: 'http://localhost:5173',
+        origin: 'https://linkedin-frontend-bhav.onrender.com',
         credentials: true,
     })
 );
@@ -37,7 +37,7 @@ const server = http.createServer(app);
 
 io = new Server(server, {
     cors: {
-        origin: 'http://localhost:5173',
+        origin: 'https://linkedin-frontend-bhav.onrender.com',
         credentials: true,
     },
 });
