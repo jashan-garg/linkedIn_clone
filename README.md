@@ -1,6 +1,7 @@
 # 📌 **LinkedIn Clone**
 
 A full-stack social networking web app inspired by LinkedIn — featuring posts, likes, comments, real-time updates, connection requests, notifications, user profiles, search, friend suggestions, and more.
+Live Link: https://linkedin-frontend-bhav.onrender.com/signup
 
 ---
 
