@@ -1,4 +1,4 @@
-# 📌 **LinkedIn-Style Social Media Platform**
+# 📌 **LinkedIn Clone**
 
 A full-stack social networking web app inspired by LinkedIn — featuring posts, likes, comments, real-time updates, connection requests, notifications, user profiles, search, friend suggestions, and more.
 
