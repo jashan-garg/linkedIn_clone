@@ -29,7 +29,7 @@ function Connection({ userId }) {
             setStatus('loading');
 
             const res = await axios.post(
-                `http://localhost:8000/api/connection/send/${userId}`,
+                `https://linkedin-backend-3b3o.onrender.com/api/connection/send/${userId}`,
                 {},
                 { withCredentials: true }
             );
@@ -47,7 +47,7 @@ function Connection({ userId }) {
             setStatus('loading');
 
             await axios.put(
-                `http://localhost:8000/api/connection/accept/${requestId}`,
+                `https://linkedin-backend-3b3o.onrender.com/api/connection/accept/${requestId}`,
                 {},
                 { withCredentials: true }
             );
@@ -64,7 +64,7 @@ function Connection({ userId }) {
             setStatus('loading');
 
             await axios.delete(
-                `http://localhost:8000/api/connection/remove/${userId}`,
+                `https://linkedin-backend-3b3o.onrender.com/api/connection/remove/${userId}`,
                 { withCredentials: true }
             );
 
