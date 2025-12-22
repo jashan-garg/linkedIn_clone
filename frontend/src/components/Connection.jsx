@@ -9,7 +9,7 @@ function Connection({ userId }) {
         const fetchStatus = async () => {
             try {
                 const res = await axios.get(
-                    `http://localhost:8000/api/connection/getstatus/${userId}`,
+                    `https://linkedin-backend-3b3o.onrender.com/api/connection/getstatus/${userId}`,
                     { withCredentials: true }
                 );
 
