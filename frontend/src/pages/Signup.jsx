@@ -34,6 +34,7 @@ function Signup() {
 
         setErr('');
 
+        // frontend validation
         if (!firstName || !lastName || !userName || !email || !password) {
             return setErr('All fields are required');
         }
@@ -47,12 +48,20 @@ function Signup() {
         try {
             await axios.post(
                 `${serverUrl}/api/auth/signup`,
-                { firstName, lastName, userName, email, password },
+                {
+                    firstName,
+                    lastName,
+                    userName,
+                    email,
+                    password,
+                },
                 { withCredentials: true }
             );
 
+            // cookie is already set → just fetch current user
             await getCurrentUser();
 
+            // clear form
             setFirstName('');
             setLastName('');
             setUserName('');
@@ -68,65 +77,65 @@ function Signup() {
     };
 
     return (
-        <div className="h-[100dvh] w-full overflow-hidden bg-[#F3F2EF] flex flex-col font-sans text-[#191919]">
-            <header className="w-full px-5 py-3 sm:px-10 shrink-0">
+        <div className="min-h-screen bg-[#F3F2EF] flex flex-col font-sans text-[#191919]">
+            <header className="w-full px-5 py-5 sm:px-10 sm:py-6">
                 <Logo className="inline-flex" />
             </header>
 
-            <main className="flex-1 min-h-0 px-4 flex items-center justify-center">
-                <section className="w-full max-w-6xl grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_420px] lg:gap-10">
+            <main className="flex-1 px-4 pb-10 flex items-center justify-center">
+                <section className="w-full max-w-6xl grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_460px] lg:gap-12">
                     <div className="hidden md:block">
-                        <p className="mb-1 text-xs font-semibold text-[#0A66C2]">
+                        <p className="mb-3 text-sm font-semibold text-[#0A66C2]">
                             LinkedIn Clone
                         </p>
-                        <h1 className="max-w-xl text-3xl font-semibold leading-tight text-[#191919] lg:text-4xl">
+                        <h1 className="max-w-xl text-4xl font-semibold leading-tight text-[#191919] lg:text-5xl">
                             Join a community built around professional growth
                         </h1>
-                        <p className="mt-3 max-w-lg text-base leading-relaxed text-gray-600">
+                        <p className="mt-5 max-w-lg text-lg leading-8 text-gray-600">
                             Create your profile, connect with people, and start
                             sharing updates that move your career forward.
                         </p>
 
-                        <div className="mt-5 rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-                            <div className="flex items-center gap-3 border-b border-gray-100 pb-3">
-                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E8F4FD] text-[#0A66C2]">
+                        <div className="mt-8 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                            <div className="flex items-center gap-3 border-b border-gray-100 pb-4">
+                                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#E8F4FD] text-[#0A66C2]">
                                     <FaUserPlus />
                                 </div>
                                 <div>
-                                    <h2 className="text-sm font-semibold text-[#191919]">
+                                    <h2 className="font-semibold text-[#191919]">
                                         Set up your identity
                                     </h2>
-                                    <p className="text-xs text-gray-600">
+                                    <p className="text-sm text-gray-600">
                                         Start with the details people will see
                                         on your profile.
                                     </p>
                                 </div>
                             </div>
 
-                            <div className="mt-3 grid grid-cols-2 gap-3 text-xs">
-                                <div className="rounded-md bg-[#F3F6F8] p-3">
+                            <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
+                                <div className="rounded-md bg-[#F3F6F8] p-4">
                                     <p className="font-semibold text-[#191919]">
                                         Network
                                     </p>
-                                    <p className="mt-0.5 text-gray-600">
+                                    <p className="mt-1 text-gray-600">
                                         Find people you know
                                     </p>
                                 </div>
-                                <div className="rounded-md bg-[#F3F6F8] p-3">
+                                <div className="rounded-md bg-[#F3F6F8] p-4">
                                     <p className="font-semibold text-[#191919]">
                                         Profile
                                     </p>
-                                    <p className="mt-0.5 text-gray-600">
+                                    <p className="mt-1 text-gray-600">
                                         Share your story
                                     </p>
                                 </div>
                             </div>
 
-                            <div className="mt-3 flex items-center gap-2 rounded-md bg-emerald-50 px-3 py-2 text-xs text-emerald-800">
+                            <div className="mt-5 flex items-center gap-3 rounded-md bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
                                 <FaUsers className="shrink-0" />
                                 <span>
-                                    A clean profile helps people connect with
-                                    you faster.
+                                    A clean profile helps people recognize and
+                                    connect with you faster.
                                 </span>
                             </div>
                         </div>
@@ -134,25 +143,29 @@ function Signup() {
 
                     <form
                         onSubmit={handleSignUp}
-                        className="w-full max-w-[420px] justify-self-center rounded-lg border border-gray-200 bg-white p-5 shadow-sm sm:p-6"
+                        className="w-full max-w-[460px] justify-self-center rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8"
                     >
-                        <div className="mb-4">
-                            <p className="text-xs font-semibold text-[#0A66C2]">
+                        <div className="mb-7">
+                            <p className="text-sm font-semibold text-[#0A66C2]">
                                 Create account
                             </p>
-                            <h1 className="mt-1 text-2xl font-semibold text-[#191919]">
-                                Start your profile
+                            <h1 className="mt-2 text-3xl font-semibold text-[#191919]">
+                                Start your professional profile
                             </h1>
+                            <p className="mt-2 text-sm leading-6 text-gray-600">
+                                Use your real details so your network can
+                                recognize you.
+                            </p>
                         </div>
 
-                        <div className="space-y-3">
-                            <div className="grid gap-3 sm:grid-cols-2">
+                        <div className="space-y-5">
+                            <div className="grid gap-5 sm:grid-cols-2">
                                 <label className="block">
-                                    <span className="mb-1 block text-xs font-semibold text-gray-700">
+                                    <span className="mb-2 block text-sm font-semibold text-gray-700">
                                         First name
                                     </span>
                                     <div className="relative">
-                                        <FaUser className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
+                                        <FaUser className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                                         <input
                                             type="text"
                                             placeholder="First Name"
@@ -160,17 +173,17 @@ function Signup() {
                                             onChange={(e) =>
                                                 setFirstName(e.target.value)
                                             }
-                                            className="w-full rounded-md border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
+                                            className="w-full rounded-md border border-gray-300 bg-white py-3 pl-11 pr-4 text-[15px] outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
                                         />
                                     </div>
                                 </label>
 
                                 <label className="block">
-                                    <span className="mb-1 block text-xs font-semibold text-gray-700">
+                                    <span className="mb-2 block text-sm font-semibold text-gray-700">
                                         Last name
                                     </span>
                                     <div className="relative">
-                                        <FaUser className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
+                                        <FaUser className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                                         <input
                                             type="text"
                                             placeholder="Last Name"
@@ -178,18 +191,18 @@ function Signup() {
                                             onChange={(e) =>
                                                 setLastName(e.target.value)
                                             }
-                                            className="w-full rounded-md border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
+                                            className="w-full rounded-md border border-gray-300 bg-white py-3 pl-11 pr-4 text-[15px] outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
                                         />
                                     </div>
                                 </label>
                             </div>
 
                             <label className="block">
-                                <span className="mb-1 block text-xs font-semibold text-gray-700">
+                                <span className="mb-2 block text-sm font-semibold text-gray-700">
                                     Username
                                 </span>
                                 <div className="relative">
-                                    <FaIdBadge className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
+                                    <FaIdBadge className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                                     <input
                                         type="text"
                                         placeholder="Username"
@@ -197,17 +210,17 @@ function Signup() {
                                         onChange={(e) =>
                                             setUserName(e.target.value)
                                         }
-                                        className="w-full rounded-md border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
+                                        className="w-full rounded-md border border-gray-300 bg-white py-3 pl-11 pr-4 text-[15px] outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
                                     />
                                 </div>
                             </label>
 
                             <label className="block">
-                                <span className="mb-1 block text-xs font-semibold text-gray-700">
+                                <span className="mb-2 block text-sm font-semibold text-gray-700">
                                     Email address
                                 </span>
                                 <div className="relative">
-                                    <FaEnvelope className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
+                                    <FaEnvelope className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                                     <input
                                         type="email"
                                         placeholder="Email"
@@ -215,17 +228,17 @@ function Signup() {
                                         onChange={(e) =>
                                             setEmail(e.target.value)
                                         }
-                                        className="w-full rounded-md border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
+                                        className="w-full rounded-md border border-gray-300 bg-white py-3 pl-11 pr-4 text-[15px] outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
                                     />
                                 </div>
                             </label>
 
                             <label className="block">
-                                <span className="mb-1 block text-xs font-semibold text-gray-700">
+                                <span className="mb-2 block text-sm font-semibold text-gray-700">
                                     Password
                                 </span>
                                 <div className="relative">
-                                    <FaLock className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
+                                    <FaLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                                     <input
                                         type={
                                             showPassword ? 'text' : 'password'
@@ -235,27 +248,35 @@ function Signup() {
                                         onChange={(e) =>
                                             setPassword(e.target.value)
                                         }
-                                        className="w-full rounded-md border border-gray-300 bg-white py-2 pl-9 pr-10 text-sm outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
+                                        className="w-full rounded-md border border-gray-300 bg-white py-3 pl-11 pr-12 text-[15px] outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
                                     />
                                     <button
                                         type="button"
                                         onClick={() =>
                                             setShowPassword((p) => !p)
                                         }
-                                        className="absolute right-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-gray-700"
+                                        className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-gray-700"
+                                        aria-label={
+                                            showPassword
+                                                ? 'Hide password'
+                                                : 'Show password'
+                                        }
                                     >
                                         {showPassword ? (
-                                            <FaEyeSlash size={14} />
+                                            <FaEyeSlash />
                                         ) : (
-                                            <FaEye size={14} />
+                                            <FaEye />
                                         )}
                                     </button>
                                 </div>
+                                <span className="mt-2 block text-xs text-gray-500">
+                                    Use at least 8 characters.
+                                </span>
                             </label>
                         </div>
 
                         {err && (
-                            <div className="mt-3 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-xs font-medium text-red-600">
+                            <div className="mt-5 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
                                 {err}
                             </div>
                         )}
@@ -263,12 +284,12 @@ function Signup() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="mt-5 w-full rounded-full bg-[#0A66C2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#004182] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
+                            className="mt-6 w-full rounded-full bg-[#0A66C2] px-5 py-3 text-base font-semibold text-white transition hover:bg-[#004182] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
                         >
                             {loading ? 'Creating Account...' : 'Sign Up'}
                         </button>
 
-                        <div className="mt-4 border-t border-gray-200 pt-3 text-center text-xs text-gray-600">
+                        <div className="mt-6 border-t border-gray-200 pt-5 text-center text-sm text-gray-600">
                             <span>Already have an account? </span>
                             <Link
                                 to="/login"
