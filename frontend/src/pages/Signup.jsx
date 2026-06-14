@@ -68,17 +68,13 @@ function Signup() {
     };
 
     return (
-        /* Changed to h-[100dvh] and overflow-hidden to strict-lock the viewport */
         <div className="h-[100dvh] w-full overflow-hidden bg-[#F3F2EF] flex flex-col font-sans text-[#191919]">
-            {/* Header padding reduced to shrink vertical footprint */}
             <header className="w-full px-5 py-3 sm:px-10 shrink-0">
                 <Logo className="inline-flex" />
             </header>
 
-            {/* min-h-0 prevents flex-1 from blowing past the container height */}
             <main className="flex-1 min-h-0 px-4 flex items-center justify-center">
                 <section className="w-full max-w-6xl grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_420px] lg:gap-10">
-                    {/* Left Side Information - Margins and paddings tightened */}
                     <div className="hidden md:block">
                         <p className="mb-1 text-xs font-semibold text-[#0A66C2]">
                             LinkedIn Clone
@@ -136,7 +132,6 @@ function Signup() {
                         </div>
                     </div>
 
-                    {/* Right Side Form - Form condensed to fit inside smaller viewports */}
                     <form
                         onSubmit={handleSignUp}
                         className="w-full max-w-[420px] justify-self-center rounded-lg border border-gray-200 bg-white p-5 shadow-sm sm:p-6"
@@ -150,7 +145,6 @@ function Signup() {
                             </h1>
                         </div>
 
-                        {/* Gap between inputs reduced from space-y-5 to space-y-3 */}
                         <div className="space-y-3">
                             <div className="grid gap-3 sm:grid-cols-2">
                                 <label className="block">
