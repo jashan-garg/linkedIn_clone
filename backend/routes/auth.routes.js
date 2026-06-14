@@ -5,6 +5,6 @@ const authRouter = express.Router();
 
 authRouter.post('/signup', signUp);
 authRouter.post('/login', logIn);
-authRouter.post('/logout', logOut); // ✅ FIXED (was GET)
+authRouter.post('/logout', logOut);
 
 export default authRouter;

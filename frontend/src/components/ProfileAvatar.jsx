@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import { userDataContext } from '../context/UserContext.jsx';
 import ProfileMenu from './ProfileMenu';
 
-/* ---------------- DEFAULT AVATAR COMPONENT ---------------- */
 function DefaultAvatar({ className = 'w-9 h-9' }) {
     return (
         <svg
@@ -19,7 +18,6 @@ function DefaultAvatar({ className = 'w-9 h-9' }) {
     );
 }
 
-/* ---------------- AVATAR IMAGE COMPONENT (moved outside!) ---------------- */
 function AvatarImage({ userData }) {
     if (userData?.profileImage) {
         return (
@@ -33,7 +31,6 @@ function AvatarImage({ userData }) {
     return <DefaultAvatar />;
 }
 
-/* ---------------- MAIN COMPONENT ---------------- */
 function ProfileAvatar() {
     const { userData } = useContext(userDataContext);
 

@@ -13,8 +13,6 @@ function Nav() {
 
     return (
         <>
-            {/* FIX: Removed 'sticky top-0 z-50'. 
-                Now this is just a plain white bar. Home.jsx will handle the sticking. */}
             <nav className="w-full bg-white border-b">
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                     {/* LEFT */}
