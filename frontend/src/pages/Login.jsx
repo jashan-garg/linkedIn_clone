@@ -53,15 +53,17 @@ function Login() {
     };
 
     return (
-        <div className="min-h-screen bg-[#F3F2EF] flex flex-col font-sans text-[#191919]">
-            <header className="w-full px-5 py-5 sm:px-10 sm:py-6">
-                <Logo className="inline-flex" />
+        <div className="relative h-[100dvh] overflow-hidden bg-[#F4F2EE] font-sans text-[#191919]">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-white/70" />
+
+            <header className="fixed left-5 top-4 z-20 sm:left-10 sm:top-6">
+                <Logo className="inline-flex rounded-md focus:outline-none focus:ring-2 focus:ring-[#0A66C2] focus:ring-offset-4 focus:ring-offset-[#F4F2EE]" />
             </header>
 
-            <main className="flex-1 px-4 pb-10 flex items-center justify-center">
-                <section className="w-full max-w-6xl grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_420px] lg:gap-12">
+            <main className="relative z-10 h-full px-4 pb-4 pt-20 sm:px-8 sm:pb-8 sm:pt-24">
+                <section className="mx-auto grid h-full w-full max-w-6xl items-center gap-6 md:grid-cols-[minmax(0,1fr)_390px] lg:gap-12">
                     <div className="hidden md:block">
-                        <p className="mb-3 text-sm font-semibold uppercase text-[#0A66C2]">
+                        <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#0A66C2]">
                             LinkedIn Clone
                         </p>
                         <h1 className="max-w-xl text-4xl font-semibold leading-tight text-[#191919] lg:text-5xl">
@@ -73,9 +75,9 @@ function Login() {
                             people you know.
                         </p>
 
-                        <div className="mt-8 space-y-4">
-                            <div className="flex items-start gap-4">
-                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-[#0A66C2] shadow-sm">
+                        <div className="mt-8 grid max-w-xl gap-3">
+                            <div className="flex items-start gap-4 rounded-lg border border-white/80 bg-white/80 p-4 shadow-sm">
+                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E8F4FD] text-[#0A66C2]">
                                     <FaUsers />
                                 </div>
                                 <div>
@@ -90,8 +92,8 @@ function Login() {
                                 </div>
                             </div>
 
-                            <div className="flex items-start gap-4">
-                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-emerald-600 shadow-sm">
+                            <div className="flex items-start gap-4 rounded-lg border border-white/80 bg-white/80 p-4 shadow-sm">
+                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
                                     <FaBriefcase />
                                 </div>
                                 <div>
@@ -105,8 +107,8 @@ function Login() {
                                 </div>
                             </div>
 
-                            <div className="flex items-start gap-4">
-                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-slate-700 shadow-sm">
+                            <div className="flex items-start gap-4 rounded-lg border border-white/80 bg-white/80 p-4 shadow-sm">
+                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-700">
                                     <FaShieldAlt />
                                 </div>
                                 <div>
@@ -123,14 +125,14 @@ function Login() {
                     </div>
 
                     <form
-                        className="w-full max-w-[430px] justify-self-center rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8"
+                        className="w-full max-w-[390px] justify-self-center rounded-lg border border-gray-200 bg-white p-5 shadow-xl shadow-black/5 sm:p-6"
                         onSubmit={handleLogin}
                     >
-                        <div className="mb-7">
+                        <div className="mb-5">
                             <p className="text-sm font-semibold text-[#0A66C2]">
                                 Sign in
                             </p>
-                            <h1 className="mt-2 text-3xl font-semibold text-[#191919]">
+                            <h1 className="mt-2 text-2xl font-semibold text-[#191919] sm:text-3xl">
                                 Good to see you again
                             </h1>
                             <p className="mt-2 text-sm leading-6 text-gray-600">
@@ -138,9 +140,9 @@ function Login() {
                             </p>
                         </div>
 
-                        <div className="space-y-5">
+                        <div className="space-y-3">
                             <label className="block">
-                                <span className="mb-2 block text-sm font-semibold text-gray-700">
+                                <span className="sr-only">
                                     Email address
                                 </span>
                                 <div className="relative">
@@ -149,7 +151,7 @@ function Login() {
                                         type="email"
                                         name="email"
                                         placeholder="you@example.com"
-                                        className="w-full rounded-md border border-gray-300 bg-white py-3 pl-11 pr-4 text-[15px] outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
+                                        className="h-12 w-full rounded-md border border-gray-300 bg-white pl-11 pr-4 text-[15px] outline-none transition placeholder:text-gray-500 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
                                         value={email}
                                         onChange={(e) => {
                                             setEmail(e.target.value);
@@ -159,9 +161,7 @@ function Login() {
                             </label>
 
                             <label className="block">
-                                <span className="mb-2 block text-sm font-semibold text-gray-700">
-                                    Password
-                                </span>
+                                <span className="sr-only">Password</span>
                                 <div className="relative">
                                     <FaLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                                     <input
@@ -170,7 +170,7 @@ function Login() {
                                         }
                                         name="password"
                                         placeholder="Enter your password"
-                                        className="w-full rounded-md border border-gray-300 bg-white py-3 pl-11 pr-12 text-[15px] outline-none transition focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
+                                        className="h-12 w-full rounded-md border border-gray-300 bg-white pl-11 pr-12 text-[15px] outline-none transition placeholder:text-gray-500 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20"
                                         value={password}
                                         onChange={(e) => {
                                             setPassword(e.target.value);
@@ -206,19 +206,19 @@ function Login() {
 
                         <button
                             type="submit"
-                            className="mt-6 w-full rounded-full bg-[#0A66C2] px-5 py-3 text-base font-semibold text-white transition hover:bg-[#004182] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
+                            className="mt-5 h-12 w-full rounded-full bg-[#0A66C2] px-5 text-base font-semibold text-white transition hover:bg-[#004182] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
                             disabled={loading}
                         >
-                            {loading ? 'Signing In...' : 'Sign In'}
+                            {loading ? 'Signing in...' : 'Sign in'}
                         </button>
 
-                        <div className="mt-6 border-t border-gray-200 pt-5 text-center text-sm text-gray-600">
+                        <div className="mt-5 border-t border-gray-200 pt-4 text-center text-sm text-gray-600">
                             <span>New to LinkedIn? </span>
                             <Link
                                 to="/signup"
                                 className="font-semibold text-[#0A66C2] hover:underline"
                             >
-                                Signup
+                                Join now
                             </Link>
                         </div>
                     </form>

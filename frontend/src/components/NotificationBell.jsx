@@ -9,32 +9,30 @@ function NotificationBell() {
     const [count, setCount] = useState(0);
     const navigate = useNavigate();
 
-    // ------------------------------
-    // FETCH NOTIFICATION COUNT
-    // ------------------------------
-    const fetchNotificationCount = async () => {
-        try {
-            const res = await axios.get(`${serverUrl}/api/notification/get`, {
-                withCredentials: true,
-            });
-
-            // number of notifications
-            setCount(res.data.length);
-        } catch (err) {
-            console.error('Notification count error:', err);
-        }
-    };
-
     useEffect(() => {
-        fetchNotificationCount();
+        let isActive = true;
+
+        axios
+            .get(`${serverUrl}/api/notification/get`, {
+                withCredentials: true,
+            })
+            .then((res) => {
+                if (isActive) {
+                    setCount(res.data.length);
+                }
+            })
+            .catch((err) => {
+                console.error('Notification count error:', err);
+            });
 
         // OPTIONAL: add socket.io real-time update later
         // socket.on("newNotification", fetchNotificationCount);
 
         return () => {
+            isActive = false;
             // socket.off("newNotification");
         };
-    }, []);
+    }, [serverUrl]);
 
     return (
         <div
