@@ -166,9 +166,7 @@ function Signup() {
                         <div className="space-y-3">
                             <div className="grid grid-cols-2 gap-3">
                                 <label className="block">
-                                    <span className="sr-only">
-                                        First name
-                                    </span>
+                                    <span className="sr-only">First name</span>
                                     <div className="relative">
                                         <FaUser className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                                         <input
@@ -185,9 +183,7 @@ function Signup() {
                                 </label>
 
                                 <label className="block">
-                                    <span className="sr-only">
-                                        Last name
-                                    </span>
+                                    <span className="sr-only">Last name</span>
                                     <div className="relative">
                                         <FaUser className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                                         <input
@@ -222,9 +218,7 @@ function Signup() {
                             </label>
 
                             <label className="block">
-                                <span className="sr-only">
-                                    Email address
-                                </span>
+                                <span className="sr-only">Email address</span>
                                 <div className="relative">
                                     <FaEnvelope className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                                     <input
