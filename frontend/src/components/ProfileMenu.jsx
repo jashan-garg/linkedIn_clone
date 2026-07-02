@@ -69,6 +69,17 @@ function ProfileMenu({ onClose }) {
         navigate('/');
     };
 
+    const handleNotificationsClick = () => {
+        onClose();
+        navigate('/notifications');
+    };
+
+    const handleSuggestionsClick = () => {
+        setSuggestions(true);
+        onClose();
+        navigate('/network');
+    };
+
     const handleLogout = async () => {
         try {
             await axios.post(
@@ -172,16 +183,13 @@ function ProfileMenu({ onClose }) {
                     <MenuButton
                         icon={<FaBell />}
                         label="Notifications"
-                        onClick={onClose}
+                        onClick={handleNotificationsClick}
                     />
 
                     <MenuButton
                         icon={<IoIosPeople />}
                         label="Suggestions"
-                        onClick={() => {
-                            setSuggestions((prev) => !prev);
-                            onClose();
-                        }}
+                        onClick={handleSuggestionsClick}
                     />
 
                     <div className="border-t border-gray-200 my-2" />

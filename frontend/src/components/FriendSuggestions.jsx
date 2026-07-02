@@ -6,6 +6,7 @@ import axios from 'axios';
 import dp from '../assets/dp.webp';
 import Connection from './Connection.jsx';
 import { Link } from 'react-router-dom';
+import { apiBaseUrl } from '../config.js';
 
 function FriendSuggestions() {
     const { suggestions } = useContext(userDataContext);
@@ -18,7 +19,7 @@ function FriendSuggestions() {
         try {
             setLoading(true);
             const res = await axios.get(
-                'https://linkedin-backend-3b3o.onrender.com/api/user/suggestedusers',
+                `${apiBaseUrl}/api/user/suggestedusers`,
                 { withCredentials: true }
             );
             setSuggestedUsers(res.data);

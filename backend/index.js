@@ -13,10 +13,12 @@ import notificationRouter from './routes/notification.routes.js';
 export let io = null;
 
 dotenv.config();
+const frontendUrl =
+    process.env.FRONTEND_URL || 'https://linkedin-frontend-bhav.onrender.com';
 const app = express();
 app.use(
     cors({
-        origin: 'https://linkedin-frontend-bhav.onrender.com',
+        origin: frontendUrl,
         credentials: true,
     })
 );
@@ -37,7 +39,7 @@ const server = http.createServer(app);
 
 io = new Server(server, {
     cors: {
-        origin: 'https://linkedin-frontend-bhav.onrender.com',
+        origin: frontendUrl,
         credentials: true,
     },
 });

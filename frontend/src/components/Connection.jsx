@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { apiBaseUrl } from '../config.js';
 
 function Connection({ userId }) {
     const [status, setStatus] = useState('loading');
@@ -9,7 +10,7 @@ function Connection({ userId }) {
         const fetchStatus = async () => {
             try {
                 const res = await axios.get(
-                    `https://linkedin-backend-3b3o.onrender.com/api/connection/getstatus/${userId}`,
+                    `${apiBaseUrl}/api/connection/getstatus/${userId}`,
                     { withCredentials: true }
                 );
 
@@ -29,7 +30,7 @@ function Connection({ userId }) {
             setStatus('loading');
 
             const res = await axios.post(
-                `https://linkedin-backend-3b3o.onrender.com/api/connection/send/${userId}`,
+                `${apiBaseUrl}/api/connection/send/${userId}`,
                 {},
                 { withCredentials: true }
             );
@@ -47,7 +48,7 @@ function Connection({ userId }) {
             setStatus('loading');
 
             await axios.put(
-                `https://linkedin-backend-3b3o.onrender.com/api/connection/accept/${requestId}`,
+                `${apiBaseUrl}/api/connection/accept/${requestId}`,
                 {},
                 { withCredentials: true }
             );
@@ -64,7 +65,7 @@ function Connection({ userId }) {
             setStatus('loading');
 
             await axios.delete(
-                `https://linkedin-backend-3b3o.onrender.com/api/connection/remove/${userId}`,
+                `${apiBaseUrl}/api/connection/remove/${userId}`,
                 { withCredentials: true }
             );
 

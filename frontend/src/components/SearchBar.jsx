@@ -4,6 +4,7 @@ import { FaSearch, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import dp from '../assets/dp.webp';
+import { apiBaseUrl } from '../config.js';
 
 function SearchBar() {
     const [open, setOpen] = useState(false);
@@ -22,7 +23,7 @@ function SearchBar() {
 
         try {
             const { data } = await axios.get(
-                `https://linkedin-backend-3b3o.onrender.com/api/user/search?query=${searchInput}`,
+                `${apiBaseUrl}/api/user/search?query=${searchInput}`,
                 { withCredentials: true }
             );
             setSearchData(data);

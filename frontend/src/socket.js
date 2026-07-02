@@ -1,6 +1,7 @@
 import { io } from 'socket.io-client';
+import { socketBaseUrl } from './config.js';
 
-export const socket = io('https://linkedin-backend-3b3o.onrender.com', {
+export const socket = io(socketBaseUrl, {
     withCredentials: true,
     autoConnect: true,
 });
