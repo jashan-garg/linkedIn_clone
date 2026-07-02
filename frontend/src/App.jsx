@@ -7,6 +7,10 @@ import { userDataContext } from './context/UserContext.jsx';
 import Network from './pages/Network.jsx';
 import Profile from './pages/Profile.jsx';
 import Notification from './pages/Notification.jsx';
+import About from './pages/About.jsx';
+import Careers from './pages/Careers.jsx';
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
+import Terms from './pages/Terms.jsx';
 
 export default function App() {
     let { userData, loading } = useContext(userDataContext);
@@ -44,6 +48,10 @@ export default function App() {
                 path="/notifications"
                 element={userData ? <Notification /> : <Navigate to="/login" />}
             />
+            <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<Terms />} />
         </Routes>
     );
 }

@@ -77,11 +77,11 @@ function Signup() {
     };
 
     return (
-        <div className="relative h-[100dvh] overflow-hidden bg-[#F4F2EE] font-sans text-[#191919]">
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-white/70" />
+        <div className="relative h-[100dvh] overflow-hidden bg-[#F3F2EF] font-sans text-[#191919]">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-white/60" />
 
             <header className="fixed left-5 top-4 z-20 sm:left-10 sm:top-6">
-                <Logo className="inline-flex rounded-md focus:outline-none focus:ring-2 focus:ring-[#0A66C2] focus:ring-offset-4 focus:ring-offset-[#F4F2EE]" />
+                <Logo className="inline-flex rounded-md focus:outline-none focus:ring-2 focus:ring-[#0A66C2] focus:ring-offset-4 focus:ring-offset-[#F3F2EF]" />
             </header>
 
             <main className="relative z-10 h-full px-4 pb-4 pt-20 sm:px-8 sm:pb-8 sm:pt-24">
