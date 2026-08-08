@@ -207,7 +207,7 @@ function Network() {
 
                                 <div className="text-xs text-gray-500 text-center pt-4 border-t border-gray-300">
                                     <p>
-                                        &copy; LinkedIn Clone. By Jashan Garg.
+                                        &copy; Orbit. By Jashan Garg.
                                     </p>
                                 </div>
                             </div>

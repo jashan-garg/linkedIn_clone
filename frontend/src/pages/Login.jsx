@@ -64,7 +64,7 @@ function Login() {
                 <section className="mx-auto grid h-full w-full max-w-6xl items-center gap-6 md:grid-cols-[minmax(0,1fr)_390px] lg:gap-12">
                     <div className="hidden md:block">
                         <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#0A66C2]">
-                            LinkedIn Clone
+                            Orbit
                         </p>
                         <h1 className="max-w-xl text-4xl font-semibold leading-tight text-[#191919] lg:text-5xl">
                             Welcome back to your professional community
@@ -213,7 +213,7 @@ function Login() {
                         </button>
 
                         <div className="mt-5 border-t border-gray-200 pt-4 text-center text-sm text-gray-600">
-                            <span>New to LinkedIn? </span>
+                            <span>New to Orbit? </span>
                             <Link
                                 to="/signup"
                                 className="font-semibold text-[#0A66C2] hover:underline"

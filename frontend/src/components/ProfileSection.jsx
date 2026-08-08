@@ -301,7 +301,7 @@ function ProfileSection() {
                             onClick={() => setIsPostModalOpen(false)}
                         />
 
-                        {/* Proper LinkedIn desktop modal */}
+                        {/* Desktop profile modal */}
                         <div className="relative w-full max-w-[700px] bg-white rounded-xl shadow-2xl overflow-hidden">
                             <CreatePost
                                 onClose={() => setIsPostModalOpen(false)}

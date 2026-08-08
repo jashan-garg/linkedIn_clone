@@ -88,7 +88,7 @@ function Signup() {
                 <section className="mx-auto grid h-full w-full max-w-6xl items-center gap-6 md:grid-cols-[minmax(0,1fr)_420px] lg:gap-12">
                     <div className="hidden md:block">
                         <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#0A66C2]">
-                            LinkedIn Clone
+                            Orbit
                         </p>
                         <h1 className="max-w-xl text-4xl font-semibold leading-tight text-[#191919] lg:text-5xl">
                             Join a community built around professional growth

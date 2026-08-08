@@ -13,7 +13,7 @@ function About() {
                             Built for professional connection.
                         </h1>
                         <p className="mt-4 text-base sm:text-lg text-slate-600 leading-7">
-                            This LinkedIn clone is designed to help people build
+                            Orbit is designed to help people build
                             profiles, share posts, connect with others, and stay
                             updated with notifications in a clean social
                             workspace.

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaTwitter } from 'react-icons/fa';
+import orbitLogo from '../assets/orbit-logo.png';
 
 function Footer() {
     return (
@@ -18,7 +19,7 @@ function Footer() {
             >
                 {/* Branding */}
                 <div className="text-center sm:text-left lg:col-span-2">
-                    <h2 className="text-white text-2xl font-bold">LinkedIn</h2>
+                    <h2 className="text-white text-2xl font-bold">Orbit</h2>
                     <p className="mt-2 text-sm max-w-sm">
                         Build meaningful professional relationships and grow
                         your career.
@@ -64,13 +65,17 @@ function Footer() {
                         >
                             <FaGithub />
                         </a>
-                        <a
-                            href="https://linkedin.com"
-                            aria-label="LinkedIn"
+                        <Link
+                            to="/"
+                            aria-label="Orbit home"
                             className="hover:text-white focus:outline-none focus:ring-2 focus:ring-white rounded"
                         >
-                            <FaLinkedin />
-                        </a>
+                            <img
+                                src={orbitLogo}
+                                alt=""
+                                className="h-5 w-5 object-contain"
+                            />
+                        </Link>
                         <a
                             href="https://twitter.com"
                             aria-label="Twitter"
@@ -96,7 +101,7 @@ function Footer() {
                     "
                 >
                     <span>
-                        © {new Date().getFullYear()} LinkedIn. By Jashan Garg.
+                        © {new Date().getFullYear()} Orbit. By Jashan Garg.
                     </span>
 
                     <span>Built with React & Tailwind</span>
